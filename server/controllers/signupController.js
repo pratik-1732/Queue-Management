@@ -6,9 +6,9 @@ import jwt from "jsonwebtoken";
 const saltrounds = 10;
 
 const signupController = async (req, res) => {
-  const { email, password, name } = req.body;
-
   try {
+    const { email, password, name } = req.body;
+
     const existingUser = await User.findOne({
       email: email,
     });
