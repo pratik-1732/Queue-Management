@@ -22,7 +22,8 @@ const Signup = () => {
           password,
         }
       );
-
+      const userId = response.data.user.id;
+      navigate(`/dashboard/:${userId}`);
       setName("");
       setEmail("");
       setPassword("");

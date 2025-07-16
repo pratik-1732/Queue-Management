@@ -19,7 +19,8 @@ const Signin = () => {
           password,
         }
       );
-      console.log(response);
+      const userId = response.data.user.id;
+      navigate(`/dashboard/:${userId}`);
       setEmail("");
       setPassword("");
     } catch (error) {
