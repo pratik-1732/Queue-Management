@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import QueueCard from "./QueueCard";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Dashboard = () => {
-  const { userId } = req.params;
+  const { userId } = useParams();
+
+  const [userInfo, setUserInfo] = useState("");
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      console.log(userId);
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/api/dashboard/${userId}`
+        );
+        setUserInfo(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error getting dashboard info:", error);
+      }
+    };
+    getUserInfo();
+  }, [userId]);
+
   return (
     <div>
       <Navbar />

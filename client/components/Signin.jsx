@@ -20,7 +20,7 @@ const Signin = () => {
         }
       );
       const userId = response.data.user.id;
-      navigate(`/dashboard/:${userId}`);
+      navigate(`/dashboard/${userId}`);
       setEmail("");
       setPassword("");
     } catch (error) {

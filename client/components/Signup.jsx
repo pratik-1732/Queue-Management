@@ -23,7 +23,7 @@ const Signup = () => {
         }
       );
       const userId = response.data.user.id;
-      navigate(`/dashboard/:${userId}`);
+      navigate(`/dashboard/${userId}`);
       setName("");
       setEmail("");
       setPassword("");
