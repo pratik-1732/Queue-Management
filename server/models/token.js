@@ -2,17 +2,14 @@ import mongoose from "mongoose";
 import Queue from "./queue.js";
 
 const tokenSchema = mongoose.Schema({
-  number: {
-    type: Number,
-  },
-  name: {
-    type: String,
-  },
+  number: String,
+  name: String,
   status: {
     type: String,
-    enum: ["waiting", "called", "completed"],
+    enum: ["waiting", "assigned", "completed", "cancelled"],
     default: "waiting",
   },
+  position: Number,
   createdAt: {
     type: Date,
     default: Date.now,
@@ -22,12 +19,8 @@ const tokenSchema = mongoose.Schema({
     ref: "Queue",
     required: true,
   },
-  waitStartTime: {
-    type: Date,
-  },
-  waitEndTime: {
-    type: Date,
-  },
+  assignAt: Date,
+  cancelledAt: Date,
 });
 
 const Token = mongoose.model("Token", tokenSchema);

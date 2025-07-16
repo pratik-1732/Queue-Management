@@ -25,9 +25,11 @@ connectDB();
 
 import authRoute from "./routes/auth.js";
 import queuesRoute from "./routes/queues.js";
+import tokenRoute from "./routes/token.js";
 
 app.use("/api/auth", authRoute);
 app.use("/api/queues", queuesRoute);
+app.use("/api/token", tokenRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Queue Management System API");
