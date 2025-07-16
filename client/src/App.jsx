@@ -1,12 +1,14 @@
-import { useState } from "react";
+import React from "react";
 import "./index.css";
+import { Routes, Route } from "react-router-dom";
+
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Hello</h1>
+      <Routes>
+        <Route path="/login" element={} />
+      </Routes>
     </>
   );
 }
