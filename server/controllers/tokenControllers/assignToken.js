@@ -5,7 +5,7 @@ const assignToken = async (req, res) => {
     const id = req.params.id;
 
     const token = await Token.findById(id);
-
+    // console.log(token, id);
     if (!token || token.status !== "waiting")
       return res.status(400).json({ error: "invalid token selection" });
 
