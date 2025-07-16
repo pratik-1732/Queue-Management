@@ -20,7 +20,7 @@ const tokenSchema = mongoose.Schema({
     required: true,
   },
   assignAt: Date,
-  cancelledAt: Date,
+  cancelled: Date,
 });
 
 const Token = mongoose.model("Token", tokenSchema);
