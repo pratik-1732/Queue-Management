@@ -30,11 +30,13 @@ import authRoute from "./routes/auth.js";
 import queuesRoute from "./routes/queues.js";
 import tokenRoute from "./routes/token.js";
 import analyticsRoute from "./routes/analytics.js";
+import dashboardRoute from "./routes/dashboard.js";
 
 app.use("/api/auth", authRoute);
 app.use("/api/queues", queuesRoute);
 app.use("/api/token", tokenRoute);
 app.use("/api/analytics", analyticsRoute);
+app.use("/api/dashboard", dashboardRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Queue Management System API");
