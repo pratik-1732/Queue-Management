@@ -10,11 +10,18 @@ const __dirname = path.dirname(__filename);
 import dotenv from "dotenv";
 dotenv.config();
 
+import cookieParser from "cookie-parser";
+
 const PORT = process.env.PORT || 3000;
+
+app.use(cookieParser());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+import connectDB from "./config/db.js";
+connectDB();
 
 import authRoute from "./routes/auth.js";
 
