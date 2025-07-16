@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/:queueId", getTokens);
 router.post("/:queueId", addToken);
 
-router.put("/:id/moveUp", moveUp);
-router.put("/:id/moveDown", moveDown);
+router.put("/moveUp/:id", moveUp);
+router.put("/moveDown/:id", moveDown);
 
 export default router;
