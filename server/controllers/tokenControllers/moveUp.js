@@ -3,7 +3,7 @@ import Token from "../../models/token.js";
 const moveUp = async (req, res) => {
   try {
     const id = req.params.id;
-
+    
     const token = await Token.findById(id);
 
     if (!token || token.position === 1)

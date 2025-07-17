@@ -11,10 +11,10 @@ const router = express.Router();
 router.get("/:queueId", getTokens);
 router.post("/:queueId", addToken);
 
-router.put("/moveUp/:id", moveUp);
-router.put("/moveDown/:id", moveDown);
+router.patch("/move-up/:id", moveUp);
+router.patch("/move-down/:id", moveDown);
 
-router.put("/assign/:id", assignToken);
-router.delete("/delete/:id", deleteToken);
+router.patch("/assign/:id", assignToken);
+router.patch("/delete/:id", deleteToken);
 
 export default router;

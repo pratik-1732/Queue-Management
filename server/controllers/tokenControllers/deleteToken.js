@@ -6,7 +6,7 @@ const deleteToken = async (req, res) => {
 
     const token = await Token.findById(id);
 
-    if (!token || token.status !== "waiting")
+    if (!token || token.status === "cancelled")
       return res.status(400).json({ error: "cann't cancel token" });
 
     token.status = "cancelled";

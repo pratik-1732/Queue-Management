@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Token from "./token.js";
 import User from "./user.js";
 
 const queueSchema = mongoose.Schema({
