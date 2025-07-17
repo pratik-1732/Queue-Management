@@ -27,6 +27,14 @@ const QueueCard = ({ data }) => {
             {data.tokens?.length || 0} members
           </span>
         </div>
+        <button
+          onClick={handleViewQueue}
+          className="group mt-5 relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-lg rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transform hover:scale-105 hover:cursor-pointer transition-all duration-300"
+        >
+          <div className="relative flex items-center space-x-2">
+            <span>View Queue</span>
+          </div>
+        </button>
       </div>
     </div>
   );
