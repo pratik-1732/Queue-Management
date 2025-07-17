@@ -4,12 +4,12 @@ import User from "../models/user.js";
 
 const createQueue = async (req, res) => {
   try {
-    const { name, userId } = req.body;
-    console.log(name, userId);
+    const { QName, userId, bgColor } = req.body;
 
     const newQueue = await Queue.create({
-      name,
+      name: QName,
       createdBy: userId,
+      bgColor,
     });
     await newQueue.save();
 

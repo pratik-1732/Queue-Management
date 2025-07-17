@@ -14,6 +14,7 @@ const queueSchema = mongoose.Schema({
       ref: "Token",
     },
   ],
+  bgColor: String,
 });
 
 const Queue = mongoose.model("Queue", queueSchema);

@@ -3,7 +3,7 @@ import User from "../models/user.js";
 const dashboardController = async (req, res) => {
   try {
     const { userId } = req.params;
-    console.log(userId);
+  
     const displayUser = await User.findById(userId).populate("queues");
     if (!displayUser) return res.status(400).json({ error: "user not found" });
 
