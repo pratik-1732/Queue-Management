@@ -95,7 +95,7 @@ const QueuePage = () => {
           </div>
         </div>
 
-        <div className="max-w-5xl p-10 mt-20 w-full mx-auto border border-gray-300 shadow-lg rounded-xl">
+        <div className="max-w-5xl p-10 mt-20 w-full mx-auto border bg-gray-50 border-gray-300 shadow-lg rounded-xl">
           {tokens.map((t, index) => {
             return (
               <TokenCard
