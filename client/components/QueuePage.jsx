@@ -108,6 +108,11 @@ const QueuePage = () => {
               />
             );
           })}
+          <div>
+            <button className="px-4 py-2 mt-10 bg-blue-600 rounded-xl text-lg text-white font-semibold hover:cursor-pointer hover:bg-yellow-500 outline-none transition-all duration-300">
+              View Analytics
+            </button>
+          </div>
         </div>
       </div>
       {showPopup && (
