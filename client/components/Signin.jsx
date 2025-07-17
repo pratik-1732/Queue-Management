@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { setUserId } from "../src/redux/userSlice.js";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -20,6 +23,7 @@ const Signin = () => {
         }
       );
       const userId = response.data.user.id;
+      dispatch(setUserId(userId));
       navigate(`/dashboard/${userId}`);
       setEmail("");
       setPassword("");
