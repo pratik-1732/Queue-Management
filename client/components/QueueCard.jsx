@@ -14,15 +14,20 @@ const QueueCard = ({ data }) => {
   return (
     <div
       style={{ backgroundColor: data.bgColor }}
-      className="p-5 flex flex-col items-center justify-center border border-gray-300 shadow-lg rounded-xl hover:scale-105 hover:cursor-pointer hover:border-blue-500 transition-all duration-500"
+      className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:cursor-pointer"
     >
-      <h1 className="text-2xl font-semibold">{data.name}</h1>
-      <button
-        onClick={handleViewQueue}
-        className="bg-blue-600 mt-10 font-semibold text-white text-base rounded-lg px-3 py-2 hover:bg-yellow-500 hover:cursor-pointer transition-all duration-300"
-      >
-        View Queue
-      </button>
+      <div className="relative p-6 flex flex-col items-center">
+        <div className=" justify-between mb-4">
+          <h3 className="text-3xl font-bold text-black truncate">
+            {data.name}
+          </h3>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-gray-700 text-lg font-semibold">
+            {data.tokens?.length || 0} members
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

@@ -62,33 +62,69 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar />
-      <div className="mt-10">
-        <div className="flex flex-col items-center">
-          <h1 className="text-5xl font-bold text-center">
-            Hello, {userInfo.name}
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+        {/* heading  */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-800 mb-5 pt-10">
+            Welcome back,{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              {userInfo.name}
+            </span>
           </h1>
-          <h3 className="text-2xl font-semibold text-center mt-5">
-            Queues created by you
-          </h3>
-          <button
-            onClick={() => setShowPopup(true)}
-            className="bg-blue-600 mt-10 font-semibold text-white text-lg rounded-lg px-3 py-2 hover:bg-yellow-500 hover:cursor-pointer transition-all duration-300"
-          >
-            Create New Queue
-          </button>
+          <p className="text-gray-600 text-lg">Manage your queues below</p>
         </div>
+
+        {/* button aur para */}
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-10 bg-white rounded-2xl shadow-lg py-6 px-10">
+            <div className="mb-4 sm:mb-0">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                Your Queues
+              </h2>
+              <p className="text-gray-600">Organize and manage your Queues</p>
+            </div>
+            <button
+              onClick={() => setShowPopup(true)}
+              className="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-lg rounded-xl px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105 hover:cursor-pointer transition-all duration-300"
+            >
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
+              <div className="relative flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  fill="currentColor"
+                  class="bi bi-plus"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                </svg>
+                <span>Create New Queue</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Queues */}
         {queues && queues.length === 0 ? (
-          <h3 className="text-lg text-center mt-20">
-            No Queues available. Please create new Queues....
-          </h3>
+          <div className="text-center py-20">
+            <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6"></div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              No Queues Yet...
+            </h3>
+            <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
+              Get started by creating your first queue
+            </p>
+          </div>
         ) : (
-          <div className="grid grid-cols-4 gap-5 px-15 mt-20">
-            {queues.map((queue, index) => {
-              return <QueueCard key={index} data={queue} />;
-            })}
+          <div className="px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {queues.map((queue, index) => (
+              <QueueCard key={index} data={queue} />
+            ))}
           </div>
         )}
       </div>
+
       {showPopup && (
         <Popup
           QName={QName}
