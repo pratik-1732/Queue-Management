@@ -12,7 +12,7 @@ import {
   Tooltip,
 } from "recharts";
 import StatusCard from "./StatusCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Analytics = () => {
@@ -23,6 +23,8 @@ const Analytics = () => {
   const [assignedToken, setAssignedToken] = useState("");
   const [cancelledToken, setCancelledToken] = useState("");
   const [averageWaitTimeInMinute, setAverageWaitTimeInMinute] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -60,7 +62,7 @@ const Analytics = () => {
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
         {/* heading  */}
-        <div>
+        <div className="flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex items-center">
               <div>
@@ -74,6 +76,12 @@ const Analytics = () => {
               </div>
             </div>
           </div>
+          <button
+            className="absolute top-30 hover:cursor-pointer right-5 bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 font-medium px-6 py-3 rounded-full hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 transform hover:scale-105"
+            onClick={() => navigate(`/queuepage/${queueId}`)}
+          >
+            ← Back to Queue Page
+          </button>
         </div>
 
         {/* metric cards  */}
