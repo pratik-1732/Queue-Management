@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import QueueCard from "./QueueCard";
 import axios from "axios";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Popup from "./Popup";
 
 const Dashboard = () => {
@@ -12,6 +12,8 @@ const Dashboard = () => {
   const [queues, setQueues] = useState([]);
   const [QName, setQName] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+
+  const navigate = useNavigate();
 
   const getUserInfo = async () => {
     try {
@@ -64,14 +66,22 @@ const Dashboard = () => {
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
         {/* heading  */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-800 mb-5 pt-10">
-            Welcome back,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              {userInfo.name}
-            </span>
-          </h1>
-          <p className="text-gray-600 text-lg">Manage your queues below</p>
+        <div>
+          <div className="text-center mb-10">
+            <h1 className="text-4xl font-bold text-gray-800 mb-5 pt-10">
+              Welcome back,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                {userInfo.name}
+              </span>
+            </h1>
+            <p className="text-gray-600 text-lg">Manage your queues below</p>
+          </div>
+          <button
+            className="absolute text-white top-20 hover:cursor-pointer right-5 bg-gradient-to-r from-red-400 to-orange-600 backdrop-blur-sm border border-gray-200 font-semibold px-6 py-3 rounded-2xl hover:shadow-lg hover:border-gray-300 transition-all duration-300 transform hover:scale-105"
+            onClick={() => navigate(`/`)}
+          >
+            Logout
+          </button>
         </div>
 
         {/* button aur para */}
