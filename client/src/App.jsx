@@ -5,6 +5,7 @@ import Signin from "../components/Signin";
 import Signup from "../components/Signup";
 import Dashboard from "../components/Dashboard";
 import QueuePage from "../components/QueuePage";
+import Analytics from "../components/Analytics";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard/:userId" element={<Dashboard />} />
         <Route path="/queuepage/:queueId" element={<QueuePage />} />
+        <Route path="/Analytics/:queueId" element={<Analytics />} />
       </Routes>
     </BrowserRouter>
   );
