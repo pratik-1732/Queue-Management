@@ -123,7 +123,10 @@ const QueuePage = () => {
               </span>
             </button>
 
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:cursor-pointer font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:from-purple-700 hover:to-purple-800 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+            <button
+              onClick={() => navigate(`/analytics/${queueId}`)}
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:cursor-pointer font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:from-purple-700 hover:to-purple-800 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+            >
               <span className="flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
