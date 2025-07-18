@@ -2,8 +2,8 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div>
-      <h1 className="text-lg md:text-2xl font-bold px-4 py-3 md:px-15 md:py-7 border-b border-gray-300 shadow-lg bg-gray-100">
+    <div className="bg-white shadow-lg border-b border-gray-100  ">
+      <h1 className="text-2xl mx-auto px-4 sm:px-6 lg:px-8 py-5 font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
         Rugas Technologies
       </h1>
     </div>
