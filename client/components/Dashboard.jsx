@@ -61,6 +61,18 @@ const Dashboard = () => {
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`, {
+        withCredentials: true,
+      });
+      navigate("/");
+    } catch (error) {
+      console.error("Logout error:", error);
+      alert("Failed to logout");
+    }
+  };
+
   return (
     <div>
       <Navbar />
@@ -78,7 +90,7 @@ const Dashboard = () => {
           </div>
           <button
             className="absolute text-white top-20 hover:cursor-pointer right-5 bg-gradient-to-r from-red-400 to-orange-600 backdrop-blur-sm border border-gray-200 font-semibold px-6 py-3 rounded-2xl hover:shadow-lg hover:border-gray-300 transition-all duration-300 transform hover:scale-105"
-            onClick={() => navigate(`/`)}
+            onClick={handleLogout}
           >
             Logout
           </button>

@@ -20,11 +20,12 @@ const Signup = () => {
           name,
           email,
           password,
-        }
+        },
+        { withCredentials: true }
       );
       const userId = response.data.user.id;
       navigate(`/dashboard/${userId}`);
-      setName("");
+      setName("");  
       setEmail("");
       setPassword("");
     } catch (error) {

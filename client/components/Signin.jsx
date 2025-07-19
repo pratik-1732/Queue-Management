@@ -20,7 +20,8 @@ const Signin = () => {
         {
           email,
           password,
-        }
+        },
+        { withCredentials: true }
       );
       const userId = response.data.user.id;
       dispatch(setUserId(userId));

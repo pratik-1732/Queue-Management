@@ -5,6 +5,12 @@ import jwt from "jsonwebtoken";
 
 const saltrounds = 10;
 
+const createToken = (payload) => {
+  return jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: "1d",
+  });
+};
+
 const signupController = async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -32,21 +38,22 @@ const signupController = async (req, res) => {
 
         await newUser.save();
 
-        const token = jwt.sign(
-          { id: newUser._id, email: newUser.email },
-          process.env.JWT_SECRET,
-          { expiresIn: "1h" }
-        );
+        const token = createToken({ email });
 
-        res.cookie("token", token);
-        return res.status(201).json({
-          message: "User created successfully",
-          user: {
-            id: newUser._id,
-            email: newUser.email,
-            name: newUser.name,
-          },
-        });
+        return res
+          .cookie("token", token, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000,
+          })
+          .status(201)
+          .json({
+            message: "User created successfully",
+            user: {
+              id: newUser._id,
+              email: newUser.email,
+              name: newUser.name,
+            },
+          });
       });
     });
   } catch (error) {

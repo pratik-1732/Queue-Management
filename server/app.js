@@ -15,7 +15,13 @@ import cookieParser from "cookie-parser";
 const PORT = process.env.PORT || 3000;
 
 import cors from "cors";
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
+console.log(process.env.FRONTEND_URL);
 
 app.use(cookieParser());
 
